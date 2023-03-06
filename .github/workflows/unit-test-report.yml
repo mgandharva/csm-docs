@@ -11,12 +11,12 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v1
-      - name: Run Tests
+      - name: Build
         working-directory: ./content/docs/deployment/csminstallationwizard/src/
         run: |
           npm install 
           npm test
-      - name: Publish Test Results
+      - name: Publish Test Report
         uses: EnricoMi/publish-unit-test-result-action@v2
         if: always()
         with:
