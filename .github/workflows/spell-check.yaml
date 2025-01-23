@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - test-spell
+      - testing-branch
   pull_request:
     branches:
-      - test-spell
+      - testing-branch
 
 jobs:
   spellcheck:
@@ -21,8 +21,7 @@ jobs:
         uses: check-spelling/check-spelling@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          paths: |
-            content/**/*.md
+          config: .github/spelling/config # Point to the configuration file
 
       - name: Print Results
         if: failure()
