@@ -21,7 +21,8 @@ jobs:
         uses: check-spelling/check-spelling@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          post_comment: false  # Disable commenting on commits
 
       - name: Display Spelling Results
-        if: failure()
-        run: cat ${{ github.workspace }}/spelling/results/output.txt
+        if: failure()  # Run only if the previous step failed
+        run: cat ${{ github.workspace }}/.github/spelling/output.txt
