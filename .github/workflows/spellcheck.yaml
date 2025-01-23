@@ -12,5 +12,5 @@ jobs:
       name: Spellcheck
       with:
         config_path: .github/actions/spelling/config.yaml # put path to configuration file here
-        source_files: README.md
+        source_files: cotents/**/*.md
         task_name: Markdown
