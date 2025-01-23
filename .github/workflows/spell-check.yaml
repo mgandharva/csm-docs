@@ -16,8 +16,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Spelling Action
+      - name: Run Spellcheck
         uses: check-spelling/check-spelling@main
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Required for the action
           config: .github/actions/spelling/config
+
+      - name: Print Results
+        if: failure()
+        run: cat ${{ github.workspace }}/.github/spelling/output.txt
