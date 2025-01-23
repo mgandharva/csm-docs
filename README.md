@@ -28,9 +28,9 @@ Dell Technologies (Dell) Container Storage Modules (CSM) is an open-source suite
 
 ## Container Storage Modules - Components
 * [Dell Technologies (Dell) Container Storage Modules (CSM) for Authorization](https://github.com/dell/karavi-authorization)
-* [Dell Technologies (Dell) Container Storage Modules (CSM) for Observability](https://github.com/dell/karavi-observability)
+* [Dell Technologies (Dell) Contaifsner Storage Modules (CSM) for Observability](https://github.com/dell/karavi-observability)
 * [Dell Technologies (Dell) Container Storage Modules (CSM) for Replication](https://github.com/dell/csm-replication)
-* [Dell Technologies (Dell) Container Storage Modules (CSM) for Resiliency](https://github.com/dell/karavi-resiliency)
+* [Dell Technologies (Dell) Csdfontainer Storage Modules (CSM) for Resiliency](https://github.com/dell/karavi-resiliency)
 * [Dell Technologies (Dell) Container Storage Modules (CSM) for Volume Group Snapshotter](https://github.com/dell/csi-volumegroup-snapshotter)
 * [CSI Driver for Dell PowerFlex](https://github.com/dell/csi-powerflex)
 * [CSI Driver for Dell PowerMax](https://github.com/dell/csi-powermax)
