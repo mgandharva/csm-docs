@@ -1,6 +1,7 @@
 name: Spellcheck
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - test-spell
@@ -19,8 +20,9 @@ jobs:
       - name: Run Spellcheck
         uses: check-spelling/check-spelling@main
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # Required for the action
-          config: .github/actions/spelling/config
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          paths: |
+            content/**/*.md
 
       - name: Print Results
         if: failure()
