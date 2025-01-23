@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: rojopolis/spellcheck-github-actions@v0.46.0
+    - uses: rojopolis/spellcheck-github-actions@v0.45.0
       name: Spellcheck
       with:
         source_files: README.md
