@@ -1,7 +1,6 @@
 name: Spellcheck
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - testing-branch
