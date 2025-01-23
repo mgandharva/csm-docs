@@ -21,8 +21,7 @@ jobs:
         uses: check-spelling/check-spelling@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          config: .github/spelling/config # Point to the configuration file
 
-      - name: Print Results
+      - name: Display Spelling Results
         if: failure()
-        run: cat ${{ github.workspace }}/.github/spelling/output.txt
+        run: cat ${{ github.workspace }}/spelling/results/output.txt
