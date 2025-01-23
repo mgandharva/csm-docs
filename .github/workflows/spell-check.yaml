@@ -1,12 +1,13 @@
 name: Spellcheck
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - testing-branch
+      - test-spell
   pull_request:
     branches:
-      - testing-branch
+      - test-spell
 
 jobs:
   spellcheck:
