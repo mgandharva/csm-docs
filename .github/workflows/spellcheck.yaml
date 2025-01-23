@@ -1,34 +1,12 @@
-name: Spellcheck
-
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - test-spell
-  pull_request:
-    branches:
-      - test-spell
+name: Spellcheck Action
+on: push
 
 jobs:
   build:
     name: Spellcheck
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Print Current Directory
-        run: pwd
-        
-      - name: List Root Directory Contents
-        run: ls -lah
-
-      - name: List Content Directory
-        working-directory: ./content/docs/
-        run: ls -lah
-        
-      - uses: rojopolis/spellcheck-github-actions@0.46.0
-        name: Spellcheck
-        with:
-          source_files: content/docs/_index.md  # Path adjusted relative to repository root
-          task_name: Markdown
-          config_path: .github/workflows/spellcheck.yaml  # Correct reference path
+    # The checkout step
+    - uses: actions/checkout@v3
+    - uses: rojopolis/spellcheck-github-actions@0.46.0
+      name: Spellcheck
