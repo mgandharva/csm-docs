@@ -1,0 +1,2 @@
+# Check all Markdown files in the content directory
+content/**/*.md

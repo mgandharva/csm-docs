@@ -1,13 +1,12 @@
 name: Spellcheck
 
 on:
-  workflow_dispatch:
-  # push:
-  #   branches:
-  #     - main
-  # pull_request:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - test-spell
+  pull_request:
+    branches:
+      - test-spell
 
 jobs:
   spellcheck:
@@ -17,8 +16,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install codespell
-        run: sudo apt-get install -y codespell
-
-      - name: Run Spellcheck
-        run: codespell content/**/*.md
+      - name: Setup Spelling Action
+        uses: check-spelling/check-spelling@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          config: .github/actions/spelling/config
