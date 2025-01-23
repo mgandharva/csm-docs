@@ -10,19 +10,14 @@ on:
       - test-spell
 
 jobs:
-  spellcheck:
+  build:
+    name: Spellcheck
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Run Spellcheck
-        uses: check-spelling/check-spelling@main
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          post_comment: false  # Disable commenting on commits
-
-      - name: Display Spelling Results
-        if: failure()  # Run only if the previous step failed
-        run: cat ${{ github.workspace }}/.github/spelling/output.txt
+    # The checkout step
+    - uses: actions/checkout@v3
+    - uses: rojopolis/spellcheck-github-actions@0.46.0
+      name: Spellcheck
+      with:
+        source_files: README.md
+        task_name: Markdown
