@@ -14,10 +14,10 @@ jobs:
     name: Spellcheck
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - uses: rojopolis/spellcheck-github-actions@0.46.0
-      name: Spellcheck
-      with:
-        source_files: content/docs/_index.md
-        task_name: Markdown
-        config_path: .github/workflows/spellcheck.yaml
+      - uses: actions/checkout@v3
+      - uses: rojopolis/spellcheck-github-actions@0.46.0
+        name: Spellcheck
+        with:
+          source_files: content/docs/_index.md  # Path adjusted relative to repository root
+          task_name: Markdown
+          config_path: .github/workflows/spellcheck.yaml  # Correct reference path
