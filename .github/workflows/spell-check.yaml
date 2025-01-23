@@ -1,0 +1,25 @@
+name: Spellcheck
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - main
+  # pull_request:
+  #   branches:
+  #     - main
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run Spellcheck
+        uses: reviewdog/action-spellcheck@v1
+        with:
+          locale: en-US
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          path: "content/**/*.md"
