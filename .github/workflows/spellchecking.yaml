@@ -1,13 +1,14 @@
-name: Spell Checking
+name: Spellchecking Final
 
 on: 
-    workflow_dispatch:
-    push:
-      branches:
-        - test-spell2
-    pull_request:
-      branches:
-        - test-spell2
+  workflow_dispatch:
+  push:
+    branches:
+      - test-spell2
+  pull_request:
+    branches:
+      - test-spell2
+
 jobs:
   codespell:
     name: Check spelling with codespell
