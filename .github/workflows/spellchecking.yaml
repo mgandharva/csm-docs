@@ -40,4 +40,4 @@ jobs:
       - name: Install
         run: wget -O - -q https://git.io/misspell | sh -s -- -b .
       - name: Misspell
-        run: ./misspell -error
+        run: ./misspell -error $(find . -type f -name "*.md")
