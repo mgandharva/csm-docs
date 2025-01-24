@@ -30,7 +30,7 @@ jobs:
           pip install -r .github/workflows/requirements.txt
 
       - name: Check spelling with codespell
-        run: find . -type f -name "*.md" -exec codespell --ignore-words=.github/codespell.txt {} +
+        run: find . -type f -name "*.md" -exec codespell --ignore-words=.github/workflows/codespell.txt {} +
 
   misspell:
     name: Check spelling with misspell
