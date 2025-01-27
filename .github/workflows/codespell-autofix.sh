@@ -2,7 +2,7 @@
 script_dir=$(dirname "$(readlink -f "$0")")
 echo "Script dir: $script_dir"
 # Run codespell and capture output
-output=$(find ../.. -type f -name "*.md" -exec codespell --ignore-words=."$script_dir"/codespell.txt --builtin clear,rare,informal --write-changes --quiet-level=0 {} +)
+output=$(find ../.. -type f -name "*.md" -exec codespell --ignore-words="$script_dir"/codespell.txt --builtin clear,rare,informal --write-changes --quiet-level=0 {} +)
 
 echo "Output: $output"
 
