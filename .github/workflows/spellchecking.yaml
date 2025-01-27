@@ -1,4 +1,4 @@
-name: Spellchecking Final
+name: Spellchecking Final Autofix
 
 on: 
   workflow_dispatch:
