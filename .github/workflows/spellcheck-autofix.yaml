@@ -55,7 +55,8 @@ jobs:
           fi
 
       - name: Print changes detected
-        run: echo Changes detected: ${{ env.CHANGES_DETECTED }}
+        run: |
+          echo "Changes detected: ${{ env.CHANGES_DETECTED }}"
 
       - name: Commit and push changes
         if: env.CHANGES_DETECTED == 'true'
