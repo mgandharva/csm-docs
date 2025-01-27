@@ -45,11 +45,11 @@ jobs:
           git status
           git diff --exit-code || echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
 
-      - uses: actions/create-github-app-token@v1.11.1
-        id: generate-token
-        with:
-          app-id: ${{ vars.CSM_RELEASE_APP_ID }}
-          private-key: ${{ secrets.CSM_RELEASE_APP_PRIVATE_KEY }}
+      # - uses: actions/create-github-app-token@v1.11.1
+      #   id: generate-token
+      #   with:
+      #     app-id: ${{ vars.CSM_RELEASE_APP_ID }}
+      #     private-key: ${{ secrets.CSM_RELEASE_APP_PRIVATE_KEY }}
       
       - name: Commit and push changes
         if: env.CHANGES_DETECTED == 'true'
