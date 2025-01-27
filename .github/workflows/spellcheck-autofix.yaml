@@ -41,7 +41,7 @@ jobs:
 
       - name: Check and fix spelling with codespell
         run: |
-          find . -type f -name "*.md" -exec codespell --ignore-words=.github/workflows/codespell.txt --write-changes {} +
+          find . -type f -name "*.md" -exec codespell --ignore-words=.github/workflows/codespell.txt --write-changes --quiet-level=2 {} +
           git status
           if [ -n "$(git status --porcelain)" ]; then
             echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
