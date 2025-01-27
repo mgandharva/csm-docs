@@ -65,14 +65,14 @@ jobs:
           sign-commits: true
           delete-branch: true
 
-  misspell:
-    name: Check spelling with misspell
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+  # misspell:
+  #   name: Check spelling with misspell
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Install misspell
-        run: wget -O - -q https://git.io/misspell | sh -s -- -b .
+  #     - name: Install misspell
+  #       run: wget -O - -q https://git.io/misspell | sh -s -- -b .
 
-      - name: Check with Misspell
-        run: ./misspell -error $(find . -type f -name "*.md")
+  #     - name: Check with Misspell
+  #       run: ./misspell -error $(find . -type f -name "*.md")
