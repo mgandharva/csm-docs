@@ -50,8 +50,6 @@ jobs:
       
       - name: Commit and push changes
         run: |
-# git config --global user.name 'github-actions[bot]'
-# git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git checkout -b autofix-spelling
           git add .
           git commit -m -s "Autofix spelling issues"
