@@ -41,19 +41,28 @@ jobs:
 
       - name: Check and fix spelling with codespell
         run: |
-          find . -type f -name "*.md" -exec codespell --ignore-words=.github/workflows/codespell.txt --write-changes --quiet-level=2 {} +
+          chmod +x .github/workflows/codespell-autofix.sh
+          ./.github/workflows/codespell-autofix.sh
+      
+     - name: Check for uncommitted changes
+        id: check_changes
+        run: |
           git status
           if [ -n "$(git status --porcelain)" ]; then
             echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
           else
             echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
           fi
-      
-      - name: Commit and push changes
+
+      - name: Print changes detected
+        run: echo "Changes detected: ${{ env.CHANGES_DETECTED }}"
+
+       - name: Commit and push changes
         if: env.CHANGES_DETECTED == 'true'
         run: |
           git add .
           git commit -m "Autofix spelling issues"
+
       - uses: actions/create-github-app-token@v1.11.1
         id: generate-token
         with:
