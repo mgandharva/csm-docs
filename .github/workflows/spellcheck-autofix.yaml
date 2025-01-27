@@ -42,6 +42,12 @@ jobs:
       - name: Check and fix spelling with codespell
         run: find . -type f -name "*.md" -exec codespell --ignore-words=.github/workflows/codespell.txt --write-changes {} +
 
+      - name: Check for changes
+        id: changes
+        run: |
+          git status
+          git diff --exit-code || echo "CHANGES_DETECTED" >> $GITHUB_ENV
+
       - uses: actions/create-github-app-token@v1.11.1
         id: generate-token
         with:
