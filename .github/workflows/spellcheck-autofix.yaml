@@ -44,7 +44,7 @@ jobs:
           chmod +x .github/workflows/codespell-autofix.sh
           ./.github/workflows/codespell-autofix.sh
       
-     - name: Check for uncommitted changes
+      - name: Check for uncommitted changes
         id: check_changes
         run: |
           git status
@@ -55,9 +55,9 @@ jobs:
           fi
 
       - name: Print changes detected
-        run: echo "Changes detected: ${{ env.CHANGES_DETECTED }}"
+        run: echo Changes detected: ${{ env.CHANGES_DETECTED }}
 
-       - name: Commit and push changes
+      - name: Commit and push changes
         if: env.CHANGES_DETECTED == 'true'
         run: |
           git add .
