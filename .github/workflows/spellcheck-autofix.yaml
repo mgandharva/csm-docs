@@ -2,12 +2,12 @@ name: Spellchecking Final Autofix
 
 on: 
   workflow_dispatch:
-  push:
-    branches:
-      - test-spell2
-  pull_request:
-    branches:
-      - test-spell2
+  # push:
+  #   branches:
+  #     - test-spell2
+  # pull_request:
+  #   branches:
+  #     - test-spell2
 
 jobs:
   codespell:
