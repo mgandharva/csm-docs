@@ -37,8 +37,8 @@ jobs:
 
       - name: Check and fix spelling with codespell
         run: |
-          chmod +x .github/workflows/codespell-autofix.sh
-          ./.github/workflows/codespell-autofix.sh
+          chmod +x .github/workflows/Spell-check-autofix/codespell-autofix.sh
+          ./.github/workflows/Spell-check-autofix/codespell-autofix.sh
       
       - name: Check for uncommitted changes
         id: check_changes
