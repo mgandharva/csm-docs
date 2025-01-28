@@ -2,12 +2,8 @@ name: Spellchecking Final Autofix
 
 on: 
   workflow_dispatch:
-  push:
-    branches:
-      - test-spell2
-  pull_request:
-    branches:
-      - test-spell2
+  repository_dispatch:
+    types: [spell-check-workflow]
 
 jobs:
   codespell:
@@ -40,20 +36,35 @@ jobs:
           pip install codespell
 
       - name: Check and fix spelling with codespell
-        run: find . -type f -name "*.md" -exec codespell --ignore-words=.github/workflows/codespell.txt --write-changes {} +
+        run: |
+          chmod +x .github/workflows/codespell-autofix.sh
+          ./.github/workflows/codespell-autofix.sh
+      
+      - name: Check for uncommitted changes
+        id: check_changes
+        run: |
+          git status
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "CHANGES_DETECTED=true" >> $GITHUB_ENV
+          else
+            echo "CHANGES_DETECTED=false" >> $GITHUB_ENV
+          fi
+
+      - name: Print changes detected
+        run: |
+          echo "Changes detected: ${{ env.CHANGES_DETECTED }}"
+
+      - name: Commit and push changes
+        if: env.CHANGES_DETECTED == 'true'
+        run: |
+          git add .
+          git commit -m "Autofix spelling issues"
 
       - uses: actions/create-github-app-token@v1.11.1
         id: generate-token
         with:
           app-id: ${{ vars.CSM_RELEASE_APP_ID }}
           private-key: ${{ secrets.CSM_RELEASE_APP_PRIVATE_KEY }}
-      
-      - name: Commit and push changes
-        run: |
-          git checkout -b autofix-spelling
-          git add .
-          git commit -m "Autofix spelling issues"
-          git push --set-upstream origin autofix-spelling
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
@@ -64,15 +75,3 @@ jobs:
           body: "This pull request was created automatically by a GitHub Action that fixes spelling errors."
           sign-commits: true
           delete-branch: true
-
-  misspell:
-    name: Check spelling with misspell
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install misspell
-        run: wget -O - -q https://git.io/misspell | sh -s -- -b .
-
-      - name: Check with Misspell
-        run: ./misspell -error $(find . -type f -name "*.md")
