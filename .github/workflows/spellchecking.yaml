@@ -1,13 +1,7 @@
 name: Spellchecking Final
 
 on: 
-  workflow_dispatch:
-  push:
-    branches:
-      - test-spell2
   pull_request:
-    branches:
-      - test-spell2
 
 jobs:
   codespell:
@@ -31,14 +25,4 @@ jobs:
           pip install codespell
 
       - name: Check spelling with codespell
-        run: find . -type f -name "*.md" -exec codespell --ignore-words=.github/workflows/codespell.txt {} +
-
-  misspell:
-    name: Check spelling with misspell
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install
-        run: wget -O - -q https://git.io/misspell | sh -s -- -b .
-      - name: Misspell
-        run: ./misspell -error $(find . -type f -name "*.md")
+        run: find . -type f -name "*.md" -exec codespell --ignore-words=.github/workflows/codespell.txt --builtin clear,rare,informal {} +
