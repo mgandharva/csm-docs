@@ -25,4 +25,4 @@ jobs:
           pip install codespell
 
       - name: Check spelling with codespell
-        run: find . -type f -name "*.md" -exec codespell --ignore-words=.github/workflows/codespell.txt --builtin clear,rare,informal {} +
+        run: find . -type f -name "*.md" -exec codespell --ignore-words=.github/workflows/Spell-check-autofix/codespell.txt --builtin clear,rare,informal {} +
