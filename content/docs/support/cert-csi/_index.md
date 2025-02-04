@@ -523,7 +523,7 @@ Run `cert-csi test expansion -h` for more options.
 6. Waits for the Volume Snapshot to be Ready.
 7. Create a Persistent Volume Claim with raw block volume mode from the Volume Snapshot.
 8. Creates Pod to consume the Persistent Volume Claim.
-9. Mounts the raw block volume and verifes the checksum of the data.
+9. Mounts the raw block volume and verifies the checksum of the data.
 
 ```bash
 cert-csi test blocksnap --sc <storageClass> --vsc <snapshotclass>
@@ -618,9 +618,9 @@ Sample ephemeral-config.properties (key/value pair)
 
 #### Storage Capacity Tracking
 1. Creates namespace `functional-test` where resources will be created.
-2. Creates a duplicate of the provided storge class using prefix `capacity-tracking`.
+2. Creates a duplicate of the provided storage class using prefix `capacity-tracking`.
 3. Waits for the associated CSIStorageCapacity object to be created.
-4. Deletes the duplicate storge class.
+4. Deletes the duplicate storage class.
 5. Waits for the associated CSIStorageCapacity to be deleted.
 6. Sets the capacity of the CSIStorageCapacity of the provided storage class to zero.
 7. Creates Pod with a volume using the provided storage class.

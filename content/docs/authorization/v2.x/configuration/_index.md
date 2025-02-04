@@ -57,7 +57,7 @@ A `storage` entity in CSM Authorization consists of the storage type (`powerflex
 
    | Parameter                 | Description                                                                          | Required | Default |
    | ------------------------- | ------------------------------------------------------------------------------------ | -------- | ------- |
-   | type                      | The type of the stoage array.                                                        | Yes      | -       |
+   | type                      | The type of the storage array.                                                        | Yes      | -       |
    | endpoint                  | HTTPS REST API endpoint of the backend storage array.                                | Yes      | -       |
    | systemID                  | System ID of the backend storage array.                                              | Yes      | -       |
    | vault.identifier          | The identifier of the Vault to be used that was configured in the Authorization CR.  | Yes      | -       |
@@ -97,7 +97,7 @@ A `role` consists of a name, the storage array to use, and the quota limit for t
    | name       | The name of the role that will be used to bind with the tenant. | Yes      | -       |
    | quota      | The amount of allocated space for the specified role.           | Yes      | -       |
    | systemID   | System ID of the backend storage array.                         | Yes      | -       |
-   | systemType | The type of the stoage array.                                   | Yes      | -       |
+   | systemType | The type of the storage array.                                   | Yes      | -       |
    | pool       | The storage pool name.                                          | Yes      | -       |
 
 For example, to create a role named `role1` using the PowerFlex storage created above with a quota limit of 128iB in storage pool `myStoragePool`:

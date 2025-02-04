@@ -168,7 +168,7 @@ To enable this feature you need to set `connection.enableCHAP` to `true` when in
 
 The driver uses the generated chapsecret to configure the iSCSI node database on each node with iSCSI access.
 
-When creating a new host on powerstore array driver will populate host chap credentials with generated values. When re-using already existing hosts driver must override existing CHAP credentials with newly generated ones.
+When creating a new host on powerstore array driver will populate host chap credentials with generated values. When reusing already existing hosts driver must override existing CHAP credentials with newly generated ones.
 
 ## Volume Expansion
 

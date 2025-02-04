@@ -595,10 +595,10 @@ Support for auto RDM for vSphere over FC feature is optional and by default this
            # Default value: "" <empty>
            - name: "X_CSI_VSPHERE_PORTGROUP"
              value: ""
-           # X_CSI_VSPHERE_HOSTNAME: An existing host(initiator group)/ host group(cascaded intiator group) that driver will use for vSphere
+           # X_CSI_VSPHERE_HOSTNAME: An existing host(initiator group)/ host group(cascaded initiator group) that driver will use for vSphere
            # this host/host group should contain initiators from all the ESXs/ESXi host where the cluster is deployed
            # recommended format: csi-x-VC-HN, x can be anything of user choice
-           # Allowed value: valid existing host(initiator group)/ host group(cascaded intiator group) on the array
+           # Allowed value: valid existing host(initiator group)/ host group(cascaded initiator group) on the array
            # Default value: "" <empty>
            - name: "X_CSI_VSPHERE_HOSTNAME"
              value: ""
