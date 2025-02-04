@@ -40,4 +40,4 @@ jobs:
             --builtin clear,rare,informal {} +
         # 'find' command searches for all .md files and runs 'codespell' on them.
         # The '--ignore-words' option specifies custom dictionary file.
-        # The '--builtin' option uses 'codespell' with built-in dictionaries: clear, rare, informal.
+        # The '--builtin' option uses 'codespell' with built-in dictionaries: clear, rare, informal. 
