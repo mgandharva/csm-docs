@@ -29,7 +29,7 @@ the cleanup operations to make sure any zombie pods (pods that have been replace
 * If a CSM for Resiliency labeled pod enters a CrashLoopBackOff state, deleting that pod so it can be replaced.
 
 _ControllerCleanupPod_ cleans up the pod by taking the following actions:
-1. The VolumeAttachments (VAs) are loaded, and all VAs belonging to the pod being cleaned up are identified. The PVs for each VolumeAttachment are identified and used to get the Volume Handle (array identifier for the volume.)
+1. The VolumeAttachments (was) are loaded, and all was belonging to the pod being cleaned up are identified. The PVs for each VolumeAttachment are identified and used to get the Volume Handle (array identifier for the volume.)
 2. If enabled, the array is queried if any of the volumes to the pod are still doing I/O. If so, cleanup is aborted.
 3. The pod's volumes are "fenced" from the node the pod resides on to prevent any potential I/O from a zombie pod. This is done by calling the CSI ControllerUnpublishVolume call for each of the volumes.
 4. A taint is applied to the node to keep any new pods from being scheduled to the node. If the replacement pod were to get scheduled to the same node as a zombie pod, they might both gain access to the volume concurrently causing corruption.

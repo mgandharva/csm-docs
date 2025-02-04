@@ -129,7 +129,7 @@ A `tenant` is a Kubernetes cluster that a role will be bound to. Edit these para
 
    | Parameter    | Description                                                                                                                    | Required | Default |
    | ------------ | ------------------------------------------------------------------------------------------------------------------------------ | -------- | ------- |
-   | roles        | A comma seperate list of roles that the tenant can be associated with.                                                         | Yes      | -       |
+   | roles        | A comma separate list of roles that the tenant can be associated with.                                                         | Yes      | -       |
    | approveSdc   | ApproveSdc is used to enable an SDC to access the MDM while the SDC is in restricted access mode.                              | Yes      | false   |
    | revoke       | Revoke is a boolean to indicate whether tenant is revoked. Set to `true` to revoke the tenant but keep it in CSM Auth.         | Yes      | false   |
    | volumePrefix | The prefix that all volumes and snapshots will contain to show association with the tenant. It should not exceed 3 characters. | Yes      | -       |
